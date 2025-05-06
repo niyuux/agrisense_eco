@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrisense - Malunggay Aeroponic System</title>
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-light: #60ad5e;
+            --primary-dark: #005005;
+            --secondary: #fdd835;
+            --secondary-light: #ffff6b;
+            --secondary-dark: #c6a700;
+            --text-on-primary: #ffffff;
+            --text-on-secondary: #000000;
+            --body-bg: #f9f9f9;
+        }
+
+        /* New styles for FAQ and Donations */
+        .faq-item {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+
+        .faq-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .maintenance-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .donation-tier {
+            background-color: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .donation-tier h3 {
+            color: var(--primary);
+        }
+
+        .donation-form {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .custom-donation {
+            background-color: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--body-bg);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: var(--text-on-primary);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            color: var(--text-on-primary);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 2.2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: var(--text-on-primary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--primary-dark);
+        }
+
+        nav ul li a.active {
+            background-color: var(--primary-dark);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-on-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        section {
+            padding: 3rem 0;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--text-on-secondary);
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-dark);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--text-on-primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .hero {
+            position: relative;
+            background-color: #e8f5e9;
+            color: #333;
+            text-align: center;
+            padding: 5rem 0;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            margin-top: 2rem;
+        }
+
+        .hero-buttons .btn {
+            margin: 0 0.5rem;
+        }
+
+        .features {
+            background-color: #fff;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .about {
+            background-color: #fff;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-member {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .team-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            background-color: #e0e0e0;
+        }
+
+        .products {
+            background-color: #fff;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .product-image {
+            height: 300px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+
+        .product-details {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .product-description {
+            margin-bottom: 1rem;
+        }
+
+        .specs-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .specs-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .specs-list li:before {
+            content: "✓";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+        }
+
+        .contact {
+            background-color: #fff;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-form {
+            padding: 2rem;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .contact-info {
+            padding: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-right: 1rem;
+        }
+
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--text-on-primary);
+            padding: 3rem 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-heading {
+            color: var(--text-on-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-on-primary);
+        }
+
+        .social-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .social-links li {
+            margin-right: 1rem;
+        }
+
+        .social-links a {
+            color: #ccc;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--text-on-primary);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Page Specific Styles */
+        #home-page,
+        #about-page,
+        #products-page,
+        #contact-page,
+        #faq-page,
+        #maintenance-tips,
+        #donations-page {
+            display: none;
+        }
+
+        #home-page.active,
+        #about-page.active,
+        #products-page.active,
+        #contact-page.active,
+        #faq-page.active,
+        #maintenance-tips.active,
+        #donations-page.active {
+            display: block;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav ul {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary);
+                flex-direction: column;
+                padding: 1rem 0;
+                transform: translateY(-150%);
+                transition: transform 0.3s;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                transform: translateY(0);
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo" onclick="showPage('home-page')">
+                <span class="logo-icon">🌱</span> Agrisense
+            </a>
+            <button class="mobile-menu-btn">☰</button>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active" onclick="showPage('home-page')">Home</a></li>
+                    <li><a href="#" onclick="showPage('about-page')">About Us</a></li>
+                    <li><a href="#" onclick="showPage('products-page')">Products</a></li>
+                    <li><a href="#" onclick="showPage('faq-page')">FAQ</a></li>
+                    <li><a href="#" onclick="showPage('donations-page')">Donate</a></li>
+                    <li><a href="#" onclick="showPage('contact-page')">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <div id="home-page" class="active">
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>Revolutionizing Moringa Farming</h1>
+                <p>Agrisense brings sustainable farming to communities with our innovative Malunggay Aeroponic System.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary" onclick="showPage('products-page')">View Products</a>
+                    <a href="#" class="btn" onclick="showPage('about-page')">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2>Why Choose Our Aeroponic System?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">💧</div>
+                        <h3>Water Efficient</h3>
+                        <p>Uses up to 95% less water than traditional soil farming methods.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌿</div>
+                        <h3>Higher Yield</h3>
+                        <p>Produces more nutritious Malunggay (Moringa) with faster growth cycles.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔄</div>
+                        <h3>Sustainable</h3>
+                        <p>Eco-friendly design with minimal environmental impact.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3>Smart Monitoring</h3>
+                        <p>Mobile application for real-time system monitoring and control.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>AI-Powered</h3>
+                        <p>ARIMA forecasting model predicts optimal growing conditions and harvest times.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Our Mission</h2>
+                <p>At Agrisense, we're committed to developing sustainable agricultural solutions that empower
+                    communities to grow nutritious food with minimal resources. Our Malunggay Aeroponic System is
+                    designed to make high-quality food production accessible to all.</p>
+                <p>As a non-profit organization, we reinvest all proceeds into furthering our mission of agricultural
+                    innovation and community support.</p>
+                <a href="#" class="btn btn-primary" onclick="showPage('about-page')">Read Our Story</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Us Page -->
+    <div id="about-page">
+        <section>
+            <div class="container">
+                <h1>About Agrisense</h1>
+                <p>Agrisense is a non-profit organization dedicated to revolutionizing agricultural practices through
+                    innovative technology. We focus on creating sustainable solutions that address food security
+                    challenges while minimizing environmental impact.</p>
+                <p>Founded in 2020, our team brings together experts in agriculture, engineering, and community
+                    development with a shared vision of making advanced farming techniques accessible to all
+                    communities.</p>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="container">
+                <h2>Our Journey</h2>
+                <p>Agrisense began with a simple question: How can we grow more nutritious food with fewer resources?
+                    After years of research and development, we created the Malunggay Aeroponic System—a breakthrough
+                    technology that enables efficient cultivation of moringa, one of the most nutrient-dense plants on
+                    the planet.</p>
+                <p>Our systems have been deployed in various communities across the Philippines, helping to address
+                    malnutrition while providing economic opportunities for local farmers.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Leadership Team</h2>
+                <div class="about-grid">
+                    <div class="team-member">
+                        <div class="team-photo"></div>
+                        <h3>Maria Santos</h3>
+                        <p>Founder & Executive Director</p>
+                        <p>Agricultural Engineer with 15+ years of experience in sustainable farming solutions.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-photo"></div>
+                        <h3>James Reyes</h3>
+                        <p>Technical Director</p>
+                        <p>Expert in aeroponic systems design and implementation with a focus on energy efficiency.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-photo"></div>
+                        <h3>Anna Cruz</h3>
+                        <p>Community Outreach Officer</p>
+                        <p>Specializes in training communities to adopt and maintain sustainable farming practices.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Our Values</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🌍</div>
+                        <h3>Sustainability</h3>
+                        <p>We create solutions that respect and preserve our planet's resources.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🤝</div>
+                        <h3>Community</h3>
+                        <p>We believe in empowering communities through knowledge and technology.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💡</div>
+                        <h3>Innovation</h3>
+                        <p>We continuously seek better ways to address agricultural challenges.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Products Page -->
+    <div id="products-page">
+        <section>
+            <div class="container">
+                <h1>Our Products</h1>
+                <p>Discover our innovative Aeroponic Systems designed to revolutionize your farming experience with
+                    higher yields, less water, and minimal space requirements.</p>
+            </div>
+        </section>
+
+        <section class="products">
+            <div class="container">
+                <!-- Featured Product Section -->
+                <div class="featured-product"
+                    style="background-color: #e8f5e9; padding: 20px; border-radius: 8px; margin-bottom: 30px; border: 2px solid var(--primary);">
+                    <h2 style="color: var(--primary-dark); text-align: center; margin-bottom: 15px;">Our Flagship
+                        Product</h2>
+                    <div class="product-card">
+                        <div class="product-image">Malunggay Aeroponic System</div>
+                        <div class="product-details">
+                            <h2 class="product-title">Malunggay Aeroponic Growing System</h2>
+                            <p class="product-price">₱12,500</p>
+                            <p class="product-description">Our flagship aeroponic system specially designed for
+                                efficient Malunggay (Moringa) cultivation. This complete system allows you to grow
+                                nutritious Moringa leaves year-round with minimal water usage and maximum yield.</p>
+
+                            <h3>Technical Specifications:</h3>
+                            <ul class="specs-list">
+                                <li>Dimensions: 120cm x 60cm x 180cm</li>
+                                <li>Growing Capacity: Up to 48 plants</li>
+                                <li>Water Usage: 95% less than traditional farming</li>
+                                <li>Power Consumption: 60W</li>
+                                <li>Timer-controlled misting system</li>
+                                <li>Adjustable nutrient delivery system</li>
+                                <li>Expandable modular design</li>
+                                <li>Smart monitoring system with mobile application</li>
+                                <li>ARIMA forecasting model for optimal growth prediction</li>
+                            </ul>
+
+                            <h3>System Inclusions:</h3>
+                            <ul class="specs-list">
+                                <li>Main aeroponic growing unit</li>
+                                <li>High-pressure misting system</li>
+                                <li>Digital control panel</li>
+                                <li>Smart monitoring sensors (temperature, humidity, pH)</li>
+                                <li>Mobile application access for real-time monitoring</li>
+                                <li>Nutrient reservoir (20L)</li>
+                                <li>48 growing pods</li>
+                                <li>Initial nutrient solution (1-month supply)</li>
+                                <li>100 Malunggay seedling starter plugs</li>
+                                <li>Instruction manual and growing guide</li>
+                                <li>Access to AI prediction dashboard using ARIMA model</li>
+                            </ul>
+
+                            <h3>Warranty and Support:</h3>
+                            <ul class="specs-list">
+                                <li>2-year warranty on all system components</li>
+                                <li>Free technical support for 1 year</li>
+                                <li>Quarterly maintenance check (first year)</li>
+                                <li>Access to online growing community</li>
+                            </ul>
+
+                            <a href="#" class="btn btn-primary" onclick="showPage('contact-page')">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Crops Section -->
+                <div class="additional-products">
+                    <h2>Additional Aeroponic Systems</h2>
+                    <p>While our main focus is on Malunggay cultivation, we also offer specialized aeroponic systems for
+                        other crops. Each system is engineered with the same quality and smart technology as our
+                        flagship Malunggay system, but optimized for the specific needs of each plant variety.</p>
+
+                    <div style="margin: 20px 0;">
+                        <h3>Choose Your Aeroponic System</h3>
+                        <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin-top: 15px;">
+                            <form id="crop-selector">
+                                <div style="margin-bottom: 15px;">
+                                    <label for="crop-type"
+                                        style="display: block; margin-bottom: 8px; font-weight: 600;">Select Crop
+                                        Type:</label>
+                                    <select id="crop-type" class="form-control" style="width: 100%; padding: 10px;">
+                                        <option value="malunggay" selected>Malunggay (Moringa) - Our Flagship System
+                                        </option>
+                                        <option value="eggplant">Eggplant (Talong)</option>
+                                        <option value="peppers">Hot Peppers (Sili)</option>
+                                        <option value="tomatoes">Tomatoes (Kamatis)</option>
+                                        <option value="cherry-tomatoes">Cherry Tomatoes</option>
+                                        <option value="okra">Okra</option>
+                                        <option value="malabar">Malabar Spinach (Alugbati)</option>
+                                        <option value="capsicum">Capsicum (Bell Peppers)</option>
+                                    </select>
+                                </div>
+                                <button type="button" class="btn btn-primary" id="view-details">View Details</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Crop-specific information sections - Initially hidden -->
+                    <div class="crop-details" id="eggplant-details"
+                        style="display: none; border: 1px solid #ddd; padding: 20px; border-radius: 8px; margin-top: 20px;">
+                        <h3>Eggplant (Talong) Aeroponic System</h3>
+                        <p class="product-price">₱11,800</p>
+                        <p>A versatile, fast-growing vegetable commonly used in Filipino cuisine. Our eggplant aeroponic
+                            system takes advantage of its shallow root system and adaptability to vertical growing.</p>
+                        <h4>Key Features:</h4>
+                        <ul class="specs-list">
+                            <li>Optimized nutrient formula for eggplant cultivation</li>
+                            <li>Vertical support structures for plant stability</li>
+                            <li>Specialized pods for larger fruit development</li>
+                            <li>Modified misting cycles for optimal growth</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary" onclick="showPage('contact-page')">Inquire Now</a>
+                    </div>
+
+                    <div class="crop-details" id="peppers-details"
+                        style="display: none; border: 1px solid #ddd; padding: 20px; border-radius: 8px; margin-top: 20px;">
+                        <h3>Hot Peppers (Sili) Aeroponic System</h3>
+                        <p class="product-price">₱10,900</p>
+                        <p>Valued for their spice and health benefits, hot peppers require minimal space and water,
+                            aligning perfectly with our efficient, nutrient-controlled environment.</p>
+                        <h4>Key Features:</h4>
+                        <ul class="specs-list">
+                            <li>Heat-optimized growing environment</li>
+                            <li>Specialized nutrient mix for capsaicin development</li>
+                            <li>Higher density planting configuration</li>
+                            <li>Adjusted light spectrum recommendations</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary" onclick="showPage('contact-page')">Inquire Now</a>
+                    </div>
+
+                    <div class="crop-details" id="tomatoes-details"
+                        style="display: none; border: 1px solid #ddd; padding: 20px; border-radius: 8px; margin-top: 20px;">
+                        <h3>Tomatoes (Kamatis) Aeroponic System</h3>
+                        <p class="product-price">₱12,200</p>
+                        <p>A household staple rich in vitamins, tomatoes thrive in aeroponic systems due to their high
+                            nutrient demand and susceptibility to soil-borne diseases, which our system avoids.</p>
+                        <h4>Key Features:</h4>
+                        <ul class="specs-list">
+                            <li>Enhanced structural support for heavy fruit</li>
+                            <li>Calcium-enriched nutrient formula</li>
+                            <li>Adjustable spacing for indeterminate varieties</li>
+                            <li>Specialized pods for larger root systems</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary" onclick="showPage('contact-page')">Inquire Now</a>
+                    </div>
+
+                    <div class="crop-details" id="cherry-tomatoes-details"
+                        style="display: none; border: 1px solid #ddd; padding: 20px; border-radius: 8px; margin-top: 20px;">
+                        <h3>Cherry Tomatoes Aeroponic System</h3>
+                        <p class="product-price">₱11,500</p>
+                        <p>Small, sweet, and nutrient-dense fruits ideal for salads and snacks. Their compact size and
+                            high yield make them perfect for our space-saving, disease-free aeroponic environment.</p>
+                        <h4>Key Features:</h4>
+                        <ul class="specs-list">
+                            <li>High-density planting configuration</li>
+                            <li>Balanced nutrient mix for sweetness development</li>
+                            <li>Specialized trellising system for vine support</li>
+                            <li>Optimized light positioning for even growth</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary" onclick="showPage('contact-page')">Inquire Now</a>
+                    </div>
+
+                    <div class="crop-details" id="okra-details"
+                        style="display: none; border: 1px solid #ddd; padding: 20px; border-radius: 8px; margin-top: 20px;">
+                        <h3>Okra Aeroponic System</h3>
+                        <p class="product-price">₱10,800</p>
+                        <p>A drought-tolerant, fiber-rich vegetable that performs well in aeroponic systems because of
+                            its fast growth cycle and minimal soil requirement, enhancing yield in limited urban spaces.
+                        </p>
+                        <h4>Key Features:</h4>
+                        <ul class="specs-list">
+                            <li>Higher humidity control settings</li>
+                            <li>Extended vertical growing space</li>
+                            <li>Modified pod spacing for optimal air circulation</li>
+                            <li>Specialized nutrient mix for fiber development</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary" onclick="showPage('contact-page')">Inquire Now</a>
+                    </div>
+
+                    <div class="crop-details" id="malabar-details"
+                        style="display: none; border: 1px solid #ddd; padding: 20px; border-radius: 8px; margin-top: 20px;">
+                        <h3>Malabar Spinach (Alugbati) Aeroponic System</h3>
+                        <p class="product-price">₱10,500</p>
+                        <p>A climbing leafy green that grows quickly in warm, humid conditions; it benefits from our
+                            vertical support structures and consistent nutrient delivery.</p>
+                        <h4>Key Features:</h4>
+                        <ul class="specs-list">
+                            <li>Enhanced vertical trellising system</li>
+                            <li>Iron and calcium enriched nutrient formula</li>
+                            <li>Humidity optimization controls</li>
+                            <li>Higher density planting configuration</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary" onclick="showPage('contact-page')">Inquire Now</a>
+                    </div>
+
+                    <div class="crop-details" id="capsicum-details"
+                        style="display: none; border: 1px solid #ddd; padding: 20px; border-radius: 8px; margin-top: 20px;">
+                        <h3>Capsicum (Bell Peppers) Aeroponic System</h3>
+                        <p class="product-price">₱11,900</p>
+                        <p>A colorful, vitamin-rich vegetable used in various cuisines. Capsicums thrive in aeroponics
+                            due to their need for precise nutrient control and protection from soil pests, both of which
+                            our system provides efficiently.</p>
+                        <h4>Key Features:</h4>
+                        <ul class="specs-list">
+                            <li>Temperature-optimized growing environment</li>
+                            <li>Enhanced structural support for heavy fruit</li>
+                            <li>Specialized nutrient mix for color development</li>
+                            <li>Adjustable spacing for different varieties</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary" onclick="showPage('contact-page')">Inquire Now</a>
+                    </div>
+
+                    <div class="crop-details" id="malunggay-redirect"
+                        style="display: none; border: 1px solid #ddd; padding: 20px; border-radius: 8px; margin-top: 20px; background-color: #e8f5e9;">
+                        <h3>Malunggay (Moringa) - Our Flagship Product</h3>
+                        <p>Please see our detailed flagship product information above.</p>
+                        <button type="button" class="btn btn-primary" onclick="scrollToFlagship()">View Flagship
+                            System</button>
+                    </div>
+                </div>
+
+                <h2 style="margin-top: 40px;">Customization Options</h2>
+                <p>All our aeroponic systems can be customized to meet your specific needs:</p>
+                <ul class="specs-list">
+                    <li>Scale adjustments (from home use to commercial applications)</li>
+                    <li>Solar power integration options</li>
+                    <li>Enhanced monitoring and automation features</li>
+                    <li>Multi-crop configurations</li>
+                    <li>Training and support packages</li>
+                </ul>
+
+                <h2 style="margin-top: 30px;">How to Order</h2>
+                <ol>
+                    <li>Contact us through our contact form or call the number provided below</li>
+                    <li>Our team will get in touch to discuss your requirements and provide a quote</li>
+                    <li>Once confirmed, we'll schedule delivery and installation</li>
+                    <li>Our experts will provide on-site training for system operation and maintenance</li>
+                </ol>
+                <p>For bulk orders or customized systems, please contact us directly for special pricing and
+                    arrangements.</p>
+                <a href="#" class="btn btn-primary" onclick="showPage('contact-page')">Contact Us to Order</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- FAQ Page -->
+    <div id="faq-page">
+        <section>
+            <div class="container">
+                <h1>Frequently Asked Questions</h1>
+                <p>Find answers to common questions about our Malunggay Aeroponic System.</p>
+
+                <div class="faq-item">
+                    <h3>What is an aeroponic system?</h3>
+                    <p>Aeroponics is a plant cultivation technique where roots are suspended in air and periodically
+                        misted with nutrient-rich water. This technique provides optimal oxygen exposure to roots,
+                        resulting in faster growth and higher nutrient content compared to traditional soil farming.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Why focus on Malunggay (Moringa)?</h3>
+                    <p>Malunggay is one of the most nutrient-dense plants on the planet, containing high levels of
+                        vitamins, minerals, antioxidants, and protein. It's drought-resistant and fast-growing, making
+                        it an ideal crop for addressing nutritional challenges in communities worldwide.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How does the mobile application work?</h3>
+                    <p>Our mobile application connects to your aeroponic system via WiFi and provides real-time
+                        monitoring of environmental conditions (temperature, humidity, nutrient levels, pH). It also
+                        allows remote control of system functions and sends alerts when parameters are outside optimal
+                        ranges.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What is the ARIMA forecasting model?</h3>
+                    <p>ARIMA (AutoRegressive Integrated Moving Average) is a statistical model we implement to predict
+                        future growth patterns based on historical data from your system. This helps optimize nutrient
+                        delivery, harvest timing, and overall yield by making data-driven predictions about plant
+                        development.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How much space do I need for the system?</h3>
+                    <p>Our standard Malunggay Aeroponic System has a footprint of approximately 120cm x 60cm and a
+                        height of 180cm. We recommend allowing at least 30cm of clearance around all sides for easy
+                        access and maintenance.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What is the return on investment?</h3>
+                    <p>Most users see a complete return on investment within 12-18 months through savings on water,
+                        fertilizer, and increased yield. The system produces approximately 20-30% more harvest compared
+                        to traditional growing methods.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Do you offer installation services?</h3>
+                    <p>Yes, our team provides professional installation and initial setup services. This includes system
+                        calibration, mobile app setup, and hands-on training for your team.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How long does the system last?</h3>
+                    <p>With proper maintenance, our aeroponic systems have an expected lifespan of 7-10 years. The main
+                        pump and electrical components are designed for 5+ years of continuous operation.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Maintenance Tips Page -->
+    <div id="maintenance-tips">
+        <section>
+            <div class="container">
+                <h1>Maintenance Tips</h1>
+                <p>Follow these guidelines to keep your Malunggay Aeroponic System running optimally for years to come.
+                </p>
+
+                <div class="maintenance-section">
+                    <h2>Daily Maintenance</h2>
+                    <ul class="specs-list">
+                        <li>Check water levels in the reservoir</li>
+                        <li>Monitor system temperature (optimal range: 22-28°C)</li>
+                        <li>Inspect plants for any signs of stress</li>
+                        <li>Review mobile app notifications and alerts</li>
+                    </ul>
+                </div>
+
+                <div class="maintenance-section">
+                    <h2>Weekly Maintenance</h2>
+                    <ul class="specs-list">
+                        <li>Test and adjust pH levels (target: 5.8-6.2)</li>
+                        <li>Check EC/TDS of nutrient solution</li>
+                        <li>Clean any debris from growing chambers</li>
+                        <li>Inspect misting nozzles for clogs</li>
+                        <li>Prune plants as needed</li>
+                    </ul>
+                </div>
+
+                <div class="maintenance-section">
+                    <h2>Monthly Maintenance</h2>
+                    <ul class="specs-list">
+                        <li>Complete water change and system flush</li>
+                        <li>Clean filters and replace if necessary</li>
+                        <li>Sanitize all growing surfaces</li>
+                        <li>Check pump pressure and operation</li>
+                        <li>Inspect all electrical connections</li>
+                        <li>Update mobile app and firmware if available</li>
+                    </ul>
+                </div>
+
+                <div class="maintenance-section">
+                    <h2>Quarterly Maintenance</h2>
+                    <ul class="specs-list">
+                        <li>Deep clean the entire system</li>
+                        <li>Replace misting nozzles</li>
+                        <li>Check system calibration</li>
+                        <li>Evaluate ARIMA model predictions against actual results</li>
+                        <li>Backup system data from mobile application</li>
+                    </ul>
+                </div>
+
+                <div class="maintenance-section">
+                    <h2>Troubleshooting Common Issues</h2>
+
+                    <h3>Poor Plant Growth</h3>
+                    <p>Check nutrient solution concentration, pH levels, and ensure misting cycles are functioning
+                        properly. Review historical data in the mobile app to identify potential patterns.</p>
+
+                    <h3>System Not Misting Properly</h3>
+                    <p>Inspect nozzles for clogs, check pump pressure, and verify timer settings. Clean or replace
+                        nozzles as needed.</p>
+
+                    <h3>Mobile App Connection Issues</h3>
+                    <p>Ensure your WiFi connection is stable, restart the system controller, and verify that your mobile
+                        device has the latest app version installed.</p>
+
+                    <h3>Unusual Noise from Pump</h3>
+                    <p>Check for debris in the pump, inspect water levels, and verify that the pump is properly mounted
+                        to reduce vibration.</p>
+                </div>
+
+                <p>For additional support or maintenance questions, please <a href="#"
+                        onclick="showPage('contact-page')">contact our technical team</a>.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Donations Page -->
+    <div id="donations-page">
+        <section>
+            <div class="container">
+                <h1>Support Our Mission</h1>
+                <p>As a non-profit organization, Agrisense relies on the generosity of donors to continue developing
+                    sustainable agricultural solutions and bringing them to communities in need.</p>
+
+                <div class="donation-content">
+                    <h2>How Your Donation Helps</h2>
+                    <p>Every contribution to Agrisense directly supports our mission in several key areas:</p>
+
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🔬</div>
+                            <h3>Research & Development</h3>
+                            <p>Fund ongoing improvements to our aeroponic systems and AI predictive models.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🏫</div>
+                            <h3>Education Programs</h3>
+                            <p>Support training workshops that teach sustainable farming techniques to communities.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🌱</div>
+                            <h3>Community Installations</h3>
+                            <p>Help us provide systems to schools, community centers, and areas facing food insecurity.
+                            </p>
+                        </div>
+                    </div>
+
+                    <h2>Donation Options</h2>
+                    <div class="donation-tiers">
+                        <div class="donation-tier">
+                            <h3>Seed Level - ₱1,000</h3>
+                            <p>Provides seedlings and nutrients for one aeroponic system for a month.</p>
+                            <a href="#" class="btn">Donate ₱1,000</a>
+                        </div>
+                        <div class="donation-tier">
+                            <h3>Sprout Level - ₱5,000</h3>
+                            <p>Sponsors technical training for community members to operate and maintain systems.</p>
+                            <a href="#" class="btn">Donate ₱5,000</a>
+                        </div>
+                        <div class="donation-tier">
+                            <h3>Harvest Level - ₱10,000</h3>
+                            <p>Funds component upgrades and maintenance for existing community systems.</p>
+                            <a href="#" class="btn">Donate ₱10,000</a>
+                        </div>
+                        <div class="donation-tier">
+                            <h3>Sustainer Level - ₱25,000+</h3>
+                            <p>Provides a complete aeroponic system to a community in need.</p>
+                            <a href="#" class="btn btn-primary">Donate ₱25,000+</a>
+                        </div>
+                    </div>
+
+                    <div class="custom-donation">
+                        <h3>Custom Donation Amount</h3>
+                        <div class="donation-form">
+                            <input type="number" placeholder="Enter amount in PHP" class="form-control">
+                            <button class="btn btn-primary">Donate</button>
+                        </div>
+                    </div>
+
+                    <h2>Corporate Partnerships</h2>
+                    <p>We welcome corporate sponsors who share our vision for sustainable agriculture. Corporate
+                        partners receive recognition on our website and materials, as well as opportunities for employee
+                        engagement.</p>
+                    <p>To discuss partnership opportunities, please <a href="#"
+                            onclick="showPage('contact-page')">contact our development team</a>.</p>
+
+                    <h2>Volunteer Opportunities</h2>
+                    <p>Can't contribute financially? We also need volunteers with skills in engineering, agriculture,
+                        education, and community outreach. <a href="#" onclick="showPage('contact-page')">Get in
+                            touch</a> to learn how you can help.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact-page">
+        <section class="contact">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p>Have questions about our Malunggay Aeroponic System? Interested in placing an order? We'd love to
+                    hear from you!</p>
+
+                <div class="contact-grid">
+                    <div class="contact-form">
+                        <h2>Send Us a Message</h2>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <select id="subject" class="form-control">
+                                    <option value="inquiry">Product Inquiry</option>
+                                    <option value="order">Place an Order</option>
+                                    <option value="support">Technical Support</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" class="form-control" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+
+                    <div class="contact-info">
+                        <h2>Contact Information</h2>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <h3>Address</h3>
+                                <p>123 Green Technology Park, Eco District, Metro Manila, Philippines</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <h3>Phone</h3>
+                                <p>(+63) 912-345-6789</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div>
+                                <h3>Email</h3>
+                                <p>info@agrisense.org</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">🕒</div>
+                            <div>
+                                <h3>Business Hours</h3>
+                                <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+                                <p>Saturday: 9:00 AM - 12:00 PM</p>
+                                <p>Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-heading">Agrisense</h3>
+                    <p>Revolutionizing sustainable farming with innovative aeroponic solutions.</p>
+                    <ul class="social-links">
+                        <li><a href="#">📱</a></li>
+                        <li><a href="#">📘</a></li>
+                        <li><a href="#">📸</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showPage('home-page')">Home</a></li>
+                        <li><a href="#" onclick="showPage('about-page')">About Us</a></li>
+                        <li><a href="#" onclick="showPage('products-page')">Products</a></li>
+                        <li><a href="#" onclick="showPage('contact-page')">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-heading">Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showPage('growing-guides')">Growing Guides</a></li>
+                        <li><a href="#" onclick="showPage('maintenance-tips')">Maintenance Tips</a></li>
+                        <li><a href="#" onclick="showPage('faq-page')">FAQ</a></li>
+                        <li><a href="#" onclick="showPage('donations-page')">Donations</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Agrisense. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('nav ul');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Page navigation
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('#home-page, #about-page, #products-page, #contact-page, #faq-page, #maintenance-tips, #donations-page').forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+
+            // Update active nav link
+            document.querySelectorAll('nav ul li a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('onclick').includes(pageId)) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Close mobile menu if open
+            navMenu.classList.remove('active');
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // In a real application, you would send this data to your server
+            alert('Thank you for your message! We will get back to you soon.');
+            contactForm.reset();
+        });
+    </script>
+    <script>
+        // JavaScript for the crop selection functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const viewDetailsBtn = document.getElementById('view-details');
+            const cropSelector = document.getElementById('crop-type');
+            const allCropDetails = document.querySelectorAll('.crop-details');
+
+            viewDetailsBtn.addEventListener('click', function () {
+                // Hide all crop details first
+                allCropDetails.forEach(detail => {
+                    detail.style.display = 'none';
+                });
+
+                // Show the selected crop details
+                const selectedCrop = cropSelector.value;
+                const selectedDetail = document.getElementById(selectedCrop + '-details');
+                if (selectedDetail) {
+                    selectedDetail.style.display = 'block';
+                    selectedDetail.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Function to scroll to flagship product
+        function scrollToFlagship() {
+            const flagship = document.querySelector('.featured-product');
+            if (flagship) {
+                flagship.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+
+</html>
